@@ -31,5 +31,19 @@ spec:
     app: playground
   ports:
     - port: 8888
-      targetPort: 8888
-  type: LoadBalancer
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: my-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: wils-service
+            port:
+              number: 8888
