@@ -31,3 +31,4 @@ spec:
     app: playground
   ports:
     - port: 8888
+  type: LoadBalancer
